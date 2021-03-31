@@ -30,7 +30,7 @@ for (i=0 ; i < persons.length ;i++) {
 
 let peopleSex =[]
 for (i=0 ; i < persons.length ;i++) {
-  peopleName.push(persons[i].sex)
+  peopleSex.push(persons[i].sex)
 }
 
 // Log the filtered named of people in peopleName that starts with 'J' or 'P'
@@ -58,7 +58,15 @@ let filtermale  = peopleSex.filter(function(el){
 
 // Log all the filtered female ('F') in persons array
 
+let filterfemale  = peopleSex.filter(function(el){
+  if (el == "M") {
+    return el
+  }
+})
+
 // Log all the filtered female ('F') whose name starts with 'C' or 'J' in persons array
+
+
 
 // Log all the even numbers from peopleGrade array
 
