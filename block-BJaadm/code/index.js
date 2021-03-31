@@ -23,7 +23,7 @@ for (i=0 ; i < persons.length ;i++) {
 // Create an array peopleGrade and store the value of grade key from persons array
 let peopleGrade = []
 for (i=0 ; i < persons.length ;i++) {
-  peopleName.push(persons[i].grade)
+  peopleGrade.push(persons[i].grade)
 }
 
 // Create an array peopleSex and store the value of sex key from persons array
@@ -66,42 +66,190 @@ let filterfemale  = peopleSex.filter(function(el){
 
 // Log all the filtered female ('F') whose name starts with 'C' or 'J' in persons array
 
+let filterfemales  = persons.filter(function(el) {
+  if (el.sex == "F") {
+    return el
+  }
+})
 
+let femalename  = filterfemales.filter(function(el) {
+  if (el.name.startsWith("C") || el.name.startsWith("J") ) {
+    return el
+  }
+})
 
 // Log all the even numbers from peopleGrade array
 
+let evengrade  = peopleGrade.filter(function(el) {
+  if (el % 2 ==0) {
+    return el
+  }
+
+})
+
 // Find the first name that starts with 'J' in persons array and log the object
 
+let firstname  = persons.filter(function(el) {
+  if (el.name[0]== "J")
+  {return el}
+})
+
 // Find the first name that starts with 'P' in persons array and log the object
+let firstpname  = persons.filter(function(el) {
+  if (el.name[0]== "P")
+  {return el}
+})
 
 // Find the first name that starts with 'J', grade is greater than 10 and is a female
+let gradefemalej  =  firstname.filter(function(el) {
+  if ( el.grade>10 && el.sex== "F") {
+    return el
+  }
+})
 
-// Filter all the female from persons array and store in femalePersons array
+// Filter all the female from persons array and store in femalePersons array  
+let femalePersons =[]
+
+for (i=0 ; i <persons.length ; i++) {
+  if (persons[i].sex== "F") {
+    femalePersons.push(persons[i])
+  }
+}
+
 
 // Filter all the male from persons array and store in malePersons array
+let malePersons =[]
+
+for (i=0 ; i <persons.length ; i++) {
+  if (persons[i].sex== "M") {
+    malePersons.push(persons[i])
+  }
+}
 
 // Find the sum of all grades and store in gradeTotal
+let gradeTotal = peopleGrade.reduce(function(acc, el) {
+  return acc+el
+},0)
 
 // Find the average grade
+let averagegrade  = gradeTotal/(peopleGrade.length)
 
 // Find the average grade of male
 
+let male  = persons.filter(function(el) {
+  if (el.sex== "M") {
+    return el
+  }
+})
+
+let malegrade = []
+
+for (i=0 ; i<male.length ; i++) {
+  malegrade.push(male[i].grade)
+}
+
+let malegradesum =0
+
+for (i=0 ; i <malegrade.length ;i++) {
+      malegradesum = malegradesum + malegrade[i]
+}
+
+console.log(malegradesum/(malegrade.length))
+
 // Find the average grade of female
+
+let female  = persons.filter(function(el) {
+  if (el.sex== "F") {
+    return el
+  }
+})
+
+let femalegrade = []
+
+for (i=0 ; i<female.length ; i++) {
+  femalegrade.push(female[i].grade)
+}
+
+let femalegradesum =0
+
+for (i=0 ; i <femalegrade.length ;i++) {
+      femalegradesum = femalegradesum + femalegrade[i]
+}
+
+console.log(femalegradesum/(femalegrade.length))
 
 // Find the highest grade
 
+let allhigh  =  peopleGrade[0]
+
+for (i=0 ; i < peopleGrade.length ;i++) {
+  if (peopleGrade[i]>allhigh) {
+    allhigh = peopleGrade[i]
+  }
+}
+
 // Find the highest grade in male
+
+let highmale = malegrade[0]
+
+for (i=0 ; i<malegrade.length ;i ++) {
+  if (highmale<malegrade[i]) {
+    highmale = malegrade[i]
+  }
+}
 
 // Find the highest grade in female
 
+let highfemale = femalegrade[0]
+
+for (i=0 ; i<femalegrade.length ;i ++) {
+  if (highfemale<femalegrade[i]) {
+    highfemale = femalegrade[i]
+  }
+}
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
 
+let firstnamewithJorP  = persons.filter(function(el) {
+  if (el.name.startsWith("J") || el.name.startsWith("P")  )
+  {return el}
+})
+
+let grading =[]
+for (i=0 ; i < firstnamewithJorP.length ;i++) {
+  grading.push(firstnamewithJorP[i].grade)
+}
+
+let highestmarks  = grading[0]
+
+for (i=0 ; i <grading.length ;i++) {
+  if (grading[i]>highestmarks) {
+    highestmarks = grading[i]
+  }
+}
 // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
+let sortpeopleGrade  = [...peopleGrade].sort(function(a,b) {
+  return a-b
+})
 
 // Sort the peopleGrade in descending order
 
+let sortingpeopleGrade  = [...peopleGrade].sort(function(a,b) {
+  return b-a
+})
+
+
 // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
+
+let againsort = [...peopleGrade].sort(function(a,b) {
+  return b-a
+})
+
+
 
 // Sort the array peopelName in ascending `ABCD..Za....z`
 
 // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
+let namesort = [...peopleName].sort(function(a,b) {
+  return a-b
+})
