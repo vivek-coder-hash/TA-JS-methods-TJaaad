@@ -31,9 +31,14 @@ strings.shift()
 
 // - Find all the words that contain 'is' use string method 'includes'
 
-strings.includes("is")
+let allIS  = strings.filter(function(el){
+  strings.includes("is")
+})
 
 // - Find all the words that contain 'is' use string method 'indexOf'
+let allISagain  = strings.filter(function(el){
+  strings.indexOf("is")
+})
 
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
 let everyreturn = numbers.every(function(el){
@@ -78,6 +83,11 @@ for (i=0 ; i <allLength.length  ; i++) {
 }
 console.log(long)
 
+let longstring  = [...strings].sort(function(a,b){
+  return a.length-b.length
+})
+longstring.pop()
+
 // - Find all the even numbers
 
 let even = numbers.filter(function(el) {
@@ -115,15 +125,35 @@ console.log(sub)
 
 // - Replace 12 & 18 with 1221 and 1881
 
-numbers[1] =1221
-numbers[3]=1881
+let replace  = numbers.map(function(el) {
+  if (el ==12) {
+    return 1221
+  }
+
+  else if (el ==18) {
+    return 1881
+
+  }
+  else {
+    return el
+  }
+})
 
 
 // - Replace words in strings array with the length of the word
 
+let replacelength  = strings.map(function(el) {
+  return el.length
+})
+
+
 
 
 // - Find the sum of the length of words using above question
+
+let sumlength  = replacelength.reduce(function(acc , el) {
+  return acc+el
+}, 0)
 
 // - Customers Array
 var customers = [
@@ -134,10 +164,37 @@ var customers = [
 ];
 // - Find all customers whose firstname starts with 'J'
 
+let first  = customers.filter(function(el) {
+  if (el.firstname[0] == "J")  {
+    return el
+  }
+})
+
 // - Create new array with only first name
+let fname  = customers.map(function(el) {
+  return el.firstname
+})
 
 // - Create new array with all the full names (ex: "Joe Blogs")
+let fullname  = customers.map(function(el) {
+  return el.firstname + " " + el.lastname
+})
 
 // - Sort the array created above alphabetically
+fullname.sort()
 
 // - Create a new array that contains only user who has at least one vowel in the firstname.
+let vow  =  customers.filter(function(el) {
+
+   if (el.firstname.includes("a")||
+   el.firstname.includes("e")||
+   el.firstname.includes("i")||
+   el.firstname.includes("o")||
+   el.firstname.includes("u")||   )
+
+   {return true}
+
+   else  {
+     return false
+   }
+})
