@@ -48,6 +48,7 @@ const fruitBasket = [
 Use the fruitBasket array to create an object where key will be the fruit and value will be the number of times
 that fruit has appeared in the array. Store it in new variable fruitsObj
 
+
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
@@ -62,6 +63,26 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
+let fruitobj = {}
+
+for (i=0 ; i<fruitBasket.length ;i++) {
+  if(fruitobj[fruitBasket[i]] == undefined) {
+    fruitobj[fruitBasket[i]]  =1
+  }
+
+  else  {
+    fruitobj[fruitBasket[i]] = fruitobj[fruitBasket[i]]+1
+  }
+}
+
+
+let fruitarray  = []
+
+for (i=0 ; i <Object.keys(fruitobj).length ; i++)  {
+  fruitarray.push([Object.keys(fruitobj)[i] , Object.values(fruitobj)[i] ])
+}
+
+
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -71,12 +92,16 @@ const data = [
 
 // Using reduce flat data array
 
+data.flat(Infinity)
+
 const dataTwo = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
   [[10, 11], 12],
 ];
+
+dataTwo.flat(Infinity)
 
 // Using reduce flat dataTwo array
 
@@ -89,6 +114,33 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+
+function increment(input) {
+  if(typeof input == "number")  {
+    return input+1
+  }
+}
+
+
+function double(input) {
+  if(typeof input == "number")  {
+    return input*2
+  }
+}
+
+
+function decrement(input) {
+  if(typeof input == "number")  {
+    return input-1
+  }
+}
+
+function triple(input) {
+  if(typeof input == "number")  {
+    return input*3
+  }
+}
+
 
 let pipeline = [
   increment,
