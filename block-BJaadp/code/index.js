@@ -166,6 +166,14 @@ EXAMPLE:
 
   ...
 */
+pipeline.forEach(function(el) {
+  console.log(el)
+})
+
+pipeline.reduce(acc,cv)( {
+  
+  return cv(acc)
+},3)
 
 let pipeline2 = [
   increment,
