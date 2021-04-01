@@ -1,7 +1,8 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
-function countAllPeople() {
-  // your code goes here
+function countAllPeople(input) {
+  let sum  =0
+    for (i=0  ; i < input.houses.)
 }
 
 function peopleByHouses() {
